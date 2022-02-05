@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+     
+    <!-- Try looking through this code and see if you
+         notice anything about the concepts
+         you've already learned.-->
+     
+    <head>  
+        <title>Binary Number Calculator</title>
+        <!-- Changes the appearance of the page -->
+        <style>
+            .inactive{
+                color: dimgray;
+            }
+            .active{
+                color:red;
+            }
+            #binary{
+                background-color: black;
+                color: lawngreen;
+            }
+            #sumText{
+                color:red;
+                padding-left: 15em;
+            }
+            #sum{
+                color:red;
+                padding-left: 6em;
+            }
+        </style>
+        <script>
+            /* Resets all of the bits and sum to zero */
+            function clearBits(){
+                var bit = null;
+                var activeBit = null;
+                var sumText = document.getElementById("sum");
+                 
+                for(var i = 0; i < 8; i++){
+                    bit = document.getElementById(""+i+"");
+                    activeBit = document.getElementById(""+i*2+"act");
+                    bit.innerHTML = "0";
+                    activeBit.setAttribute("class", "inactive");
+                }
+                 
+                sumText.innerHTML = 0;
+            }
+             
+            /* Converts the decimal entered by the user to binary */
+            function convert(){
+                var userInput = parseInt(document.getElementById("input").value);
+                var sumText = document.getElementById("sum");
+                var bit = null;
+                var bitValue = null;
+                var i = 0;
+                var activeBit = null;
+                 
+                /* Makes sure the input is valid */
+                if(isNaN(userInput) || userInput > 255){
+                    alert("Invalid Input :(\nPlease enter a number between 0 and 255");
+                    return;
+                }
+                 
+                /* Resets all of the bits and sum to zero */
+                clearBits();
+                 
+                /* Changes the output sum to the user's input */
+                sumText.innerHTML = userInput;
+                 
+                /* Performs the math operatiosn to calculate the active bits */
+                while(userInput > 0){
+                    bit = document.getElementById(""+i+"");
+                    activeBit = document.getElementById(""+i*2+"act");
+                    bitValue = userInput % 2;
+                    if(bitValue == 1){
+                        activeBit.setAttribute("class", "active");
+                    }
+                    userInput = Math.floor(userInput/2);
+                    bit.innerHTML = bitValue;
+                    i++;
+                }
+            }              
+        </script>
+    </head>
+    <body>
+        <h1>Binary Number Generator</h1>
+        <input type="text" id="input" value="Enter any number (0 - 255)"/>
+        <input type="button" value="Get Binary Representation" onclick="convert()"/>
+        <br />
+        <br />
+         
+        <h2 id="binary"><span id="7">0</span>&nbsp;&nbsp;&nbsp;<span id="6">0</span>&nbsp;&nbsp;&nbsp;<span id="5">0</span>&nbsp;&nbsp;&nbsp;<span id="4">0</span>  
+            &nbsp;&nbsp;&nbsp;<span id="3">0</span>&nbsp;&nbsp;&nbsp;<span id="2">0</span>&nbsp;&nbsp;&nbsp;<span id="1">0</span>&nbsp;&nbsp;&nbsp;<span id="0">0</span></h2>
+        <h4><span class="inactive" id="14act">128</span>&nbsp;&nbsp;<span class="inactive" id="12act">64</span>&nbsp;&nbsp;&nbsp;<span class="inactive" id="10act">32</span>&nbsp;&nbsp;&nbsp;<span class="inactive" id="8act">16</span>&emsp;&nbsp;&nbsp;<span class="inactive" id="6act">8</span>&emsp;&nbsp;<span class="inactive" id="4act">4</span>&emsp;&nbsp;&nbsp;<span class="inactive" id="2act">2</span>&emsp;&nbsp;&nbsp;<span class="inactive"id="0act">1</span><span id="sum">0</span></h4>
+         
+        <p id="sumText">Sum of all the red numbers</p>
+    </body>    
+</html>

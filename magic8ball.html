@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>    
+    <head>  
+        <title>Magic * 8 * Ball</title>
+        <script>
+            function shake(){
+                 // array of possible responses
+                var responses = ["Yes, of course!", "Yup!", "Why not?", "Ask Again.",
+                             "Sorry, no.", "Well, alright then!", "Maybe.", "Absolutely not!"]; 
+                 
+                // picks a new random number 0 to 7
+                var randomNumber = Math.floor(Math.random() * 8);
+                 
+                // box to hold the spot for what the 8 ball says
+                var display = document.getElementById("display");                
+                 
+                // changes the HTML in the body of the page to be the message
+                display.innerHTML = responses[randomNumber];
+            }              
+        </script>
+    </head>
+    <body>
+        <h1>Magic * 8 * Ball</h1>
+        <h2 id="display"></h2>
+        <input type="text" value="Enter your question here"/>
+        <input type="button" value="Shake!" onclick="shake()"/>
+    </body>    
+</html>

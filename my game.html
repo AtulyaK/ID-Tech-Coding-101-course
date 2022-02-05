@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head> 
+    
+    <h1>Terrenne Necrosis!</h1>
+    <script>
+       
+        class Enemy{
+            constructor(n, c){
+                this.name = n;
+                this.cost = c;
+            }
+            sayName(){
+                alert(this.name);
+            }
+        }
+        
+        function CreateImage(source){
+            var x = document.createElement("img");
+            x.src = source;
+            x.width = 400;
+            x.height = 400;
+            document.body.appendChild(x);
+        }
+      
+        alert("Press OK to begin building an adventurer.");  
+        //Asks and saves user's name
+        
+        
+        var userPet = prompt("What is your name?");
+        //Asks and saves user's pet
+       
+        var userName = prompt("What pet does your adventurer have?");
+        //Makes userPet lowercase
+      
+        var pet = userPet.toLowerCase();
+        //Asks and saves user's pet's name
+        
+        var userLocation = prompt("What is your pet's name?");
+        //Asks and saves user's location
+        
+        var userPetName = prompt("Where do you want to go ?");
+        //Asks and saves user's feelings
+       
+        var userName = prompt("Nobody care :) !")
+        
+        var feeling = prompt("How are you?")
+        //Asks and saves user's type of warrior
+        
+        var warrior = prompt("What type of warrior do you want to be? A mage,hunter,assasin,ranger, juggernaut, or bard ?")
+        
+        var money = 200;
+        
+        var fightSomeone = "";                
+            fightSomeone = prompt("Would you like to fight Merlin the Mage,Alcator the Assasin,Hunter the Hunter,Juluis Ceaser the Juggernaut,Rommulus the Ranger, or Belgabad the Bard. ?");
+            fightSomeone = fightSomeone.toLowerCase();
+        
+        var oppName = "";
+        if(fightSomeone == "merlin the mage"){
+            alert("You want to fight Merlin? Sure! It only costs 50 dollars.");  
+                var enemy = new Enemy("Merlin", 50);
+                money -= enemy.cost
+                oppName = enemy.name;
+                CreateImage("mage.jpg");
+        } 
+        
+          else if(fightSomeone == "alcator the assasin"){
+            alert("Alcator the Assasin is the best do you want to fight him?. Sure! It costs 101 dollars.");
+                var enemy = new Enemy("Alcator", 101);
+                    money -= enemy.cost
+                    oppName = enemy.name;
+                    CreateImage("assasin.jpg");
+        } 
+        
+          else if(fightSomeone == "hunter the hunter"){
+            alert("You want to fight Hunter the Hunter? You need to pay 50 dollars.");
+              var enemy = new Enemy("Hunter", 50);
+                    money -= enemy.cost
+                    oppName = enemy.name;
+                    CreateImage("hunter.jpg");
+        } 
+        
+          else if (fightSomeone == "juluis ceaser the juggernaut") {
+            alert("Julius is our best Juggernaut, are you sure? Great! Pay 70 dollars please!");
+                var enemy = new Enemy("Juluis", 70);
+                    money -= enemy.cost
+                    oppName = enemy.name;
+                    CreateImage("juggernaut.jpg"); 
+        }
+        
+          else if (fightSomeone == "rommulus the ranger") {
+            alert("Rommulus is a deadly Ranger, are you sure? Great! Pay 96 dollars please!");
+                var enemy = new Enemy("Rommulus", 96);
+                    money -= enemy.cost
+                    oppName = enemy.name;
+                    CreateImage("ranger.jpg");
+        }
+        
+          else if (fightSomeone == "belgabad the bard") {
+            alert("Belgabad the Bard, are you sure? Great! Pay 106 dollars please!");
+                var enemy = new Enemy("Belgabad", 160);
+                    money -= enemy.cost
+                    oppName = enemy.name;
+                    CreateImage("bard.jpg");
+        }
+        
+          //Prints out statement
+            alert("Get ready for a Battle Royale");
+        
+       
+        //Print out statement
+            alert("The basic armor and weapons you start with are a helmet,greaves,booots,armor,a shield,  a sword and or a bow. ")
+        var weapon = prompt(oppName + " tells you to fight a monster. There is a choice of a monster you can fight which one do you want to fight?  The Undead,Succubus,Griffin,Leviathan, Kraken, or Basillisk? What weapon will you use to attack the monster? A bow, sword, or magic? ")
+        //Ask and saves user's weapon
+        
+       
+    
+        var action = "";                
+            fightSomeone = prompt("Would you like to attack or defend?");
+            fightSomeone = fightSomeone.toLowerCase();
+        
+        if (action == "attack"){
+        alert( "You have won and gotten the cropse of the /n" + monster + "." + "You beat the monster and" + fightSomeone +"comes out the shadow and he congratulates you on winning. He gives you the medal of valor and you won!" )
+        
+        }
+        
+        else if (action == "defend"){
+        alert("You have lost next time attack because then you will win. Now you are a little sore loser! You lost and are terribly injured" + fightSomeone +"comes out of the darkness and says you failed and he leaves you to die by the hands of a monster.")    
+        
+        }    
+            //Print out statement
+            alert("That is it ! Good job playing now do what ever!!! :)")         
+        
+         </script>
+
+    
+    </head>
+
+    
+    <body>
+        
+    </body>
+    
+
+</html>
